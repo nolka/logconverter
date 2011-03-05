@@ -25,7 +25,19 @@ function convert($number)
             // Код нашего города 391. Замените этот код на Ваш при необходимости
             $number = '7391'.$number;
         }
-            // Международная связь
+        // Неверно набранные номера тоже удаляем
+        if(strlen($number) == 8 || strlen($number) == 9)
+        {
+            writeln("wrong CDR number: ".$number);
+            return false;
+        }
+        // Номера на мобильные и МГ, которые были набраны без 8ки
+        if(strlen($number) == 10)
+        {
+            // Добавляем 7 вначале
+            $number = '7'.$number;
+        }
+        // Международная связь
         if(preg_match('/^810/', $number))
         {
             $number = preg_replace("/^810/", "", $number);

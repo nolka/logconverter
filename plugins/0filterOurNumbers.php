@@ -9,7 +9,7 @@ function filterNumbers($data)
     $line = $data['src'];
     $gibs = $data['gibs'];
     
-    if(!preg_match("/25[27]90/", $line))
+    if(!preg_match("/25[27]9[02]/", $line))
         return false;
     
     return $data;
